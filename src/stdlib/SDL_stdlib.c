@@ -18,6 +18,12 @@
      misrepresented as being the original software.
   3. This notice may not be removed or altered from any source distribution.
 */
+
+/*
+This file contains modifications made by Nathan Schubkegel,
+see code near DEFER_TO_MSVCRT
+*/
+
 #include "../SDL_internal.h"
 
 /* This file contains portable stdlib functions for SDL */
@@ -334,11 +340,13 @@ localexit:
     /* *INDENT-ON* */
 }
 
+#ifndef DEFER_TO_MSVCRT
 void
 _ftol2_sse()
 {
     _ftol();
 }
+#endif
 
 /* 64-bit math operators for 32-bit systems */
 void
