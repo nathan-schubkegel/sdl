@@ -49,7 +49,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\include;..\..\..\Microsoft DirectX SDK (August 2009)\Include"
+				AdditionalIncludeDirectories="..\..\include;..\..\..\directx\Include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_LIB;USE_GETTICKCOUNT;DEFER_TO_MSVCRT;$(NOINHERIT)"
 				MinimalRebuild="true"
 				ExceptionHandling="0"
