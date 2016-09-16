@@ -26,6 +26,20 @@
 
 #include "SDL_stdinc.h"
 
+#ifndef NATE_COMMANDER_ALLOW_SDL_ENV
+
+char * SDL_getenv(const char *name)
+{
+  return 0; // no and then!
+}
+
+int SDL_setenv(const char *name, const char *value, int overwrite)
+{
+  return -1; // no and then!
+}
+
+#else
+
 #if defined(__WIN32__) && (!defined(HAVE_SETENV) || !defined(HAVE_GETENV))
 /* Note this isn't thread-safe! */
 static char *SDL_envmem = NULL; /* Ugh, memory leak */
@@ -268,5 +282,7 @@ main(int argc, char *argv[])
     return (0);
 }
 #endif /* TEST_MAIN */
+
+#endif /* !NATE_COMMANDER_ALLOW_SDL_ENV */
 
 /* vi: set ts=4 sw=4 expandtab: */
